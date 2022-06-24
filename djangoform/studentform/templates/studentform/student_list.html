@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>StudentsList</title>
+</head>
+<style>
+   table{
+    background-color: aquamarine;
+}
+</style>
+<body>
+ <h1> LIST OF STUDENTS  <button type="button" class="btn btn-success"><a href="{% url 'add_student' %}">ADD STUDENT</a></button></h1>
+ {{ total }}
+    <table border='1'>
+        <tr>
+            <th> ID</th>
+            <th>STD_ID</th>
+            <th>Firstname</th>
+            <th>Middlename</th>
+            <th>Lastname</th>
+            <th>City</th>
+            <th>Country</th>
+            <th>Phone Number</th>
+            <th>Faculty</th>
+            <th>Marks Obtained</th>
+            <th>Evaluation</th>
+            <th>UPDATE</th> 
+            <th>DELETE</th>
+          </tr>
+          
+{% for i in list %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{i.std_id}}</td>
+      <td>{{i.first_name}}</td>
+      <td>{{i.middle_name}}</td>
+      <td>{{i.last_name}}</td>
+      <td>{{i.city}}</td>
+      <td>{{i.country}}</td>
+      <td>{{i.phone_number}}</td>
+      <td>{{i.faculty}}</td>
+      <td>{{i.marks_obtained}}</td>
+      <td>{{i.evaluation}}</td>
+      <td> <a href="{% url 'updates' i.id%}"><button type="button"  class="btn btn-success">UPDATE</button></a></td>
+      <td> <a href="{% url 'deletes' i.id%}"><button type="button" class="btn btn-danger">DELETE</button><a></td>
+    </tr>
+{% endfor%}
+
+{{ a.first_name }}
+</table>
+</body>
+</html>
