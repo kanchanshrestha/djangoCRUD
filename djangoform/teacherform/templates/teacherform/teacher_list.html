@@ -12,12 +12,38 @@
 <style> 
 table{
     background-color: aquamarine;
+    border-radius: 25px;
+}
+th, td {
+    border-radius: 25px;
+    padding: 15px;
+    text-align: left;
+}
+
+div{
+    background-color: #EF959D;
 }
  
 </style>
 <body>
-    <h1> LIST OF TEACHERS <button type="button" class="btn btn-success"><a href="{% url 'add_teacher'%}">ADD TEACHER</a></button></h1>
-    <table border="1" >
+    
+    <div>
+    <h1> LIST OF TEACHERS  <a href="{% url 'add_teacher' %}"><button type="button"  class="btn btn-success">ADD TEACHER</button></a></h1>
+    <table> 
+        <h3>
+           <tr>
+            <th>Total Students 
+           </th>
+           </tr>
+           <tr>
+               <td>
+                   {{ total }}
+               </td>
+           </tr>
+           </h3>
+       </table>
+       <br>       
+    <table>
         <tr>
             <th>ID</th>
             <th>EMP_ID</th>
@@ -54,6 +80,6 @@ table{
     </tr>
 {% endfor%}
 </table>
-   
+</div>
 </body>
 </html>

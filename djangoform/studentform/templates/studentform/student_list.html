@@ -11,13 +11,36 @@
 </head>
 <style>
    table{
-    background-color: aquamarine;
+    border-radius: 25px;
+    background-color: #68feff;
+}
+th, td {
+    border-radius: 25px;
+  padding: 15px;
+  text-align: left;
+}
+div{
+    background-color: #eea29a;
 }
 </style>
 <body>
- <h1> LIST OF STUDENTS  <button type="button" class="btn btn-success"><a href="{% url 'add_student' %}">ADD STUDENT</a></button></h1>
- {{ total }}
-    <table border='1'>
+    <div>
+ <h1> LIST OF STUDENTS  <a href="{% url 'add_student' %}"><button type="button"  class="btn btn-success">ADD STUDENT</button></a></h1>
+<table> 
+ <h3>
+    <tr>
+     <th>Total Students 
+    </th>
+    </tr>
+    <tr>
+        <td>
+            {{ total }}
+        </td>
+    </tr>
+    </h3>
+</table>
+<br>
+    <table>
         <tr>
             <th> ID</th>
             <th>STD_ID</th>
@@ -29,6 +52,7 @@
             <th>Phone Number</th>
             <th>Faculty</th>
             <th>Marks Obtained</th>
+            <!-- <th>Percentage</th> -->
             <th>Evaluation</th>
             <th>UPDATE</th> 
             <th>DELETE</th>
@@ -46,13 +70,13 @@
       <td>{{i.phone_number}}</td>
       <td>{{i.faculty}}</td>
       <td>{{i.marks_obtained}}</td>
+      <!-- <td>{{i.percentage}}</td> -->
       <td>{{i.evaluation}}</td>
       <td> <a href="{% url 'updates' i.id%}"><button type="button"  class="btn btn-success">UPDATE</button></a></td>
       <td> <a href="{% url 'deletes' i.id%}"><button type="button" class="btn btn-danger">DELETE</button><a></td>
     </tr>
 {% endfor%}
-
-{{ a.first_name }}
 </table>
+</div>
 </body>
 </html>

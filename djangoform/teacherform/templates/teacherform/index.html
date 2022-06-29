@@ -7,6 +7,7 @@
     <title>Teacher Form</title>
 </head>
 <style>
+
     input[type=text], select {
       width: 25%;
       padding: 12px 20px;
@@ -25,7 +26,8 @@
       border-radius: 4px;
       box-sizing: border-box;
     }
-    
+  
+  
     input[type=submit] {
       width: 25%;
       background-color: #4CAF50;
@@ -37,24 +39,65 @@
       cursor: pointer;
     }
     
+    
     input[type=submit]:hover {
       background-color: #45a049;
     }
     
     div {
       border-radius: 5px;
-      background-color: #f2f2f2;
+      background-color: #EF959D;
       padding: 20px;
+      width: 97%;
     }
     </style>
 <body>
+  <div>
   <h1> TEACHER FORM</h1>
+  
+    <h3>
+    <center>
     <form method="POST" >
-        {{ forms.as_p }}
-        {% csrf_token %}
-        {{form }}
+      {% csrf_token %}
+      <label> EMP ID </label>
+      {{ forms.emp_id}}
+      <br>
+      <label>First Name </label>
+      {{ forms.first_name }}
+      <br>
+      <label>Middle Name</label>
+      {{ forms.middle_name }}
+      <br>
+      <label> Last Name</label>
+      {{ forms.last_name }}
+      <br>
+      <label>City</label>
+      {{ forms.city }}
+      <br>
+      <label>Country </label>
+      {{ forms.country }}
+      <br>
+      <label>Street</label>
+      {{ forms.street }}
+      <br>
+      <label>Phone Number</label>
+      {{forms.country_code}}
+      {{ forms.phone_number }}
+      <br>
+      <label>Subject </label>
+      {{ forms.subject }}
+      <br>
+      <label>Department</label>
+      {{ forms.department }}
+      <br>
+      <label>Salary</label>
+      {{ forms.salary }}
+      <br>
         <input type="submit" value=Submit>
       </form>
-    
+    </center>
+  </h3>
+</div>
 </body>
+
 </html>

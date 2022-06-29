@@ -7,12 +7,13 @@ from .forms import TeacherF
 
 def teacherform(request):
     forms=TeacherF()
-   
     if request.method=='POST':
         forms=TeacherF(request.POST)
+
         if forms.is_valid():
             forms.save()
             return redirect ("/teacherform/getteacherlist/")
+       
         else:
             return HttpResponse("Invalid Form")
     context={
@@ -21,11 +22,16 @@ def teacherform(request):
     return render(request,'teacherform/index.html',context)
 
 def teacherlist(request):
-    teachers=TeacherForm.objects.all()
-    teacherlist={
-        'list':teachers
+   teachers=TeacherForm.objects.all()
+   totalnumber=teachers.count()
+   print ("total",totalnumber)
+   teacherlist={
+        'list':teachers,
+        # 'a':a
+        "total":totalnumber
     }
-    return render(request,'teacherform/teacher_list.html',teacherlist)
+   return render(request,'teacherform/teacher_list.html',teacherlist)
+   
 
 def updateteach(request,id):
     teacher=TeacherForm.objects.get(id=id)

@@ -9,6 +9,7 @@ class TeacherForm(models.Model):
     country=models.CharField(max_length=255)
     street=models.IntegerField()
     phone_number=models.CharField(max_length=255)
+    country_code=models.CharField(max_length=30,null=True,blank=True)
     subject=models.CharField(max_length=255)
     department=models.CharField(max_length=255)
     salary=models.BigIntegerField()

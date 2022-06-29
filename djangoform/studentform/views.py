@@ -1,5 +1,3 @@
-from email import message
-from urllib import request
 from django.shortcuts import redirect, render
 from django. http import HttpRequest, HttpResponse,HttpResponseRedirect
 from .models import StudentForm
@@ -61,11 +59,7 @@ def updatestd(request,id):
 
 def deletestd(request,id):
     StudentForm.objects.get(id=id).delete()
-    context={
-        "message":"deleted"
-    }
-    return render(request,'studentform/getstudentlist',context)
-    return redirect ("/studentform/getstudentlist/")
+    return redirect("/studentform/getstudentlist/")
 
 
 
