@@ -11,7 +11,7 @@ STREET_CHOICES= [
 
 DEPARTMENT_CHOICES=[
      ('IT','Information Technology'),('M','Management'), ('PB' , 'Public Health'),
-    ('PY', 'Physics'), ('C' ,'Chemestry'),('Z','Zoology'), ('B','Botany'),
+    ('PY', 'Physics'), ('C' ,'Chemistry'),('Z','Zoology'), ('B','Botany'),
     ('PO','Polpulation')
 
     ]

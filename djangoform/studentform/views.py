@@ -8,6 +8,7 @@ def studentform(request):
     forms=StudentF()
     if request.method=='POST':
         forms=StudentF(request.POST)
+        print(forms)
 
         if forms.is_valid():
             forms.save()

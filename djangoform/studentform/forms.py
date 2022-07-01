@@ -27,7 +27,7 @@ class StudentF(forms.ModelForm):
         model=StudentForm
         fields='__all__'
         widgets = {
-        'std_id': forms.NumberInput(attrs={"placeholder":"Student ID"}),
+            'std_id': forms.NumberInput(attrs={"placeholder":"Student ID"}),
             'first_name': forms.TextInput(attrs={"placeholder":"Your First Name"}),
             'middle_name': forms.TextInput(attrs={"placeholder":"Your Middle Name"}),
             'last_name': forms.TextInput(attrs={"placeholder":"Your Last Name"}),

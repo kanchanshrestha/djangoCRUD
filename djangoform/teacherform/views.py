@@ -24,7 +24,6 @@ def teacherform(request):
 def teacherlist(request):
    teachers=TeacherForm.objects.all()
    totalnumber=teachers.count()
-   print ("total",totalnumber)
    teacherlist={
         'list':teachers,
         # 'a':a
