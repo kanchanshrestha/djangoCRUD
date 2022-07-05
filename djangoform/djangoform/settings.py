@@ -9,9 +9,10 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+from dotenv import load_dotenv
+import os
 from pathlib import Path
-
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -31,16 +32,18 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    #teachersform 
-    'teacherform',
-    #studentsfrom
-    'studentform',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # project app
+    'teacherform',
+    'studentform',
+    'contact',
+    'login',
+    'user'
 ]
 
 MIDDLEWARE = [
@@ -86,12 +89,12 @@ WSGI_APPLICATION = 'djangoform.wsgi.application'
 # mysql connection
 DATABASES = {  
     'default': {  
-        'ENGINE': 'django.db.backends.mysql',  
-        'NAME': 'crud_database',  
-        'USER': 'root',  
-        'PASSWORD': '',  
-        'HOST': '127.0.0.1',  
-        'PORT': '3306',  
+        'ENGINE': os.getenv("ENGINE"),  
+        'NAME': os.getenv("NAME"),  
+        'USER': os.getenv("USER"),  
+        'PASSWORD': os.getenv("PASSWORD"),  
+        'HOST': os.getenv("HOST"),  
+        'PORT': os.getenv("PORT"),  
         'OPTIONS': {  
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  
         }  
@@ -138,3 +141,13 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# #email setting
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST= 'smtp.gmail.com'
+# EMAIL_PORT= 587
+# EMAIL_HOST_USER='kanchanshrestha437@gmail.com'
+# EMAIL_HOST_PASSWORD='taylor@13'
+# EMAIL_USE_TLS=False
+
+AUTH_USER_MODEL='user.User'
