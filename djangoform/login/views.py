@@ -15,7 +15,6 @@ def registerform(request):
     forms=RegisterF()
     if request.method=='POST':
         forms=RegisterF(request.POST)
-
         if forms.is_valid():
             user=forms.save(commit=False)
             user.set_password(forms.cleaned_data['password'])
